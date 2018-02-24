@@ -9,12 +9,17 @@ import { IssueComponent } from './issue/issue.component';
 import { WikiComponent } from './wiki/wiki.component';
 import { MarkdownPipe } from './wiki/markdown.pipe';
 
+import { IssueService } from './issue/issue.service';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     PagesRoutingModule
   ],
-  declarations: [PagesComponent, TopComponent, IssueComponent, WikiComponent, MarkdownPipe]
+  declarations: [PagesComponent, TopComponent, IssueComponent, WikiComponent, MarkdownPipe],
+  providers: [
+    IssueService
+  ]
 })
 export class PagesModule { }
