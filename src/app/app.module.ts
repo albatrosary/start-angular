@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { AppGuard } from './app.guard';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AppGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
