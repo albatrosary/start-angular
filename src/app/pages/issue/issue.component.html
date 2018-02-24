@@ -1,3 +1,8 @@
 <h2>Issue</h2>
-<ah-issue-input></ah-issue-input>
-<ah-issue-list></ah-issue-list>
+<ah-issue-input
+  (onSubmit)="onSubmit($event)">
+></ah-issue-input>
+<ah-issue-list
+  [issues]="issues"
+  (onDelete)="onDelete($event)">
+></ah-issue-list>

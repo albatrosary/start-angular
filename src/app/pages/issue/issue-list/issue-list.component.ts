@@ -1,7 +1,6 @@
-import { Component, OnInit } from'@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from'@angular/core';
 
 import { Issue } from'../issue';
-import { IssueService } from'../issue.service';
 
 @Component({
   selector: 'ah-issue-list',
@@ -10,18 +9,17 @@ import { IssueService } from'../issue.service';
 })
 export class IssueListComponent implements OnInit {
 
-  issues: Issue[];
+  @Input() issues: Issue[];
 
   constructor (
-    private issueService: IssueService
   ) {}
 
-  public ngOnInit () {
-    this.issues = this.issueService.list;
-  }
+  public ngOnInit () { }
 
+  @Output('onDelete')
+  private _onDelete = new EventEmitter<number>();
   public onDelete(index: number): void {
-    this.issueService.delete(index);
+    this._onDelete.emit(index);
   }
   
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from'@angular/core';
+import { Component, OnInit, Output, EventEmitter } from'@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { IssueService } from '../issue.service';
+import { Issue } from '../issue';
 
 @Component({
   selector: 'ah-issue-input',
@@ -10,23 +10,20 @@ import { IssueService } from '../issue.service';
 })
 export class IssueInputComponent implements OnInit {
 
-  constructor(
-    private issueService: IssueService
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
   }
 
+  @Output("onSubmit")
+  private _onSubmit = new EventEmitter<Issue>();
   public onSubmit(form: NgForm): void {
-
     const issue = {
       title: form.value.title,
       desc: form.value.desc
     };
-
-    this.issueService.add(issue);
-
+    this._onSubmit.emit(issue);
     form.reset();
   }
 

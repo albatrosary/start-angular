@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IssueComponent } from './issue.component';
 
@@ -13,7 +14,8 @@ import { IssueUpdateComponent } from './issue-update/issue-update.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [IssueComponent],
   declarations: [IssueComponent, IssueDetailComponent, IssueInputComponent, IssueListComponent, IssueUpdateComponent],
